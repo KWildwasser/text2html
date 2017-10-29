@@ -1,0 +1,22 @@
+4.2 Naives Bayes Verfahren
+Voraussetzungen Bayes-Regel
+Vorbemerkung: Dieses Verfahren nimmt die Unabhängigkeit aller Argumentattribute voneienander an.
+Verfahren:
+-Erst einmal Statistik aufstellen, wie häufig jedes Argumentattribut einen bestimmten Wert des Klassifikationsattributs nach sich zieht.
+-Hieraus wird für jedes Argument-Argument brechnet, welchen Antei jeder seiner Werte an einem bestimmten Wert des Klassifikationsattributs aht.
+-Danach erfolgt die Anwendung der Bayes-Regel, um für "neue Daten" (z.B. einen "neuen Tag") zu berechnen:
+P(play=yes | 'neue Wetterbedingungen')=
+P(play=no | 'neue Wetterbedingungen')=
+Schlussendlich Entscheidung: für die grössere dieser beiden Wahrscheinlichkeiten.
+
+4.3 Berechnung von Entscheidungsbäumen (Id3-Alorithmus)
+Ein Entscheidungsbaum berücksichtigt mehrere Argument-Attribute in unterschiedlicher Wichtigkeit zur Entscheidungsfindung.
+Voraussetzung für den Aufbau eines Entscheidungsbaums sind zwei Funktionen:
+-info(): Maß (Kennzahl) für während eines Lernprozesses noch zu gewinnende Information.
+-gain(): Maß (Kennzahl) für Informationsgewinn (i.A. Differenz zweier Werte der info()-Funktion).
+Verfahren:
+-Anfangsberechnung für die noch zu gewinnende Information: info(9,5) für 9 yes-Fälle, 5 no-Fälle in den Trainingsdaten
+-Berechnung des Entscheidungsbaums: zunächstr Berechnung des "wichtigsten" Arributs, das in die Wurzel des sich entwickelnden Entscheinungsbaums eingefügt wird (outlook) über die info()- und gain()-Funktionen.
+-Analog weiter für Teilbäume, jeweils für die Werte des Argumentattributd (ootlook)
+-Ende der Entwicklung des Entscheidungsbaums: wenn alle Blattknoten nur noch einen Wer des Klassifikationsattribus enthalten.
+Dieser Id3-Algorithmus ist otimiert worden: C4.5, C5.0, J48
