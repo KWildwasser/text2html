@@ -50,7 +50,7 @@ int main (int argc, char* argv[]) {
     outfile.close();
   }
 
-  else cout << "Unable to open file"; 
+  else cout << "Unable to open file" << '\n'; 
 
   return 0;
 }
