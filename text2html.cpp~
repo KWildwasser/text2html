@@ -6,16 +6,16 @@ using namespace std;
 int main (int argc, char* argv[]) {
   string line;
   char arbiter;
-  bool in_list = false;
-  ifstream infile (argv[1]);
+  bool list_started = false;
+  ifstream myfile (argv[1]);
   ofstream outfile (argv[2]);
-  if (infile.is_open() && outfile.is_open())
+  if (myfile.is_open() && outfile.is_open())
   {
 	  outfile << "<!DOCTYPE html>" << '\n' 
 		  << "<html lang=\"de\">" << '\n'
 		  << "<meta charset=UTF-8>" << '\n' 
 		  << "<body>" << '\n';
-    while ( getline (infile,line) )
+    while ( getline (myfile,line) )
     {
 	if(line.length() == 0) {
 		outfile << '\n';	
@@ -24,13 +24,13 @@ int main (int argc, char* argv[]) {
 	arbiter = line.at(0);
 	if (arbiter ==  '-') {
 		line.erase(0,1);
-		if(!in_list) outfile << "<ul>" << '\n';
+		if(!list_started) outfile << "<ul>" << '\n';
 
-		in_list = true;
+		list_started = true;
 		outfile << "<li>" << line << "</li>" << '\n';
 	} else if (isdigit(arbiter)) {
-		if(in_list) outfile << "</ul>" << '\n';
-		in_list = false;
+		if(list_started) outfile << "</ul>" << '\n';
+		list_started = false;
 		if(isdigit(line.at(2))) {
 			outfile << "<h2>" << line << "</h2>" << '\n';
 		} else if (line.at(2) ==  ' ') {
@@ -38,15 +38,15 @@ int main (int argc, char* argv[]) {
 		}
 
 	} else {
-		if(in_list) outfile << "</ul>" << '\n';
-		in_list = false;
+		if(list_started) outfile << "</ul>" << '\n';
+		list_started = false;
 		outfile << "<p>" << line << "</p>" << '\n';
 
 	}
       	    
     }
     outfile <<  "</body>" << '\n' << "</html>" << '\n';
-    infile.close();
+    myfile.close();
     outfile.close();
   }
 
