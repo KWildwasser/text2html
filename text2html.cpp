@@ -45,6 +45,7 @@ int main (int argc, char* argv[]) {
 	}
       	    
     }
+	if(in_list) outfile << "</ul>" << '\n';
     outfile <<  "</body>" << '\n' << "</html>" << '\n';
     infile.close();
     outfile.close();
