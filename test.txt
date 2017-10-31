@@ -10,4 +10,4 @@ Und noch eine Liste:
 -1. Punkt
 -2. Punkt
 -3. Punkt
-<code> Etwas code <p> paragraph </p> </code>
+Und zum Schluss noch <code> etwas code </code>
