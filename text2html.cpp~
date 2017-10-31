@@ -17,7 +17,7 @@ int main (int argc, char* argv[]) {
 		  << "<html lang=\"de\">" << '\n'
 		  << "<head>" << '\n'
 		  << "<meta charset=UTF-8>" << '\n' 
-		  << "<title>" << argv[2] << "</title>" << '\n'
+		  << "<title>" << argv[1] << "</title>" << '\n'
 		  << "<!-- Korbinian Wildwasser -->" << '\n'
 		  << "</head>" << '\n'
 		  << "<body>" << '\n';
