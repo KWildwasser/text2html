@@ -1,3 +1,11 @@
+/* text2html
+ * converts text into html files
+ * "-" declares a list element
+ * "'0-9'. " declares h1 
+ * "'0-9'.'0-9' " declares h2 
+ * 
+ * author: Korbinian Wildwasser <korbinian.wildwasser@gmail.com>
+ */
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -29,7 +37,7 @@ int main (int argc, char* argv[]) {
 		outfile << '\n';	
 		continue;
 	}
-	/*process lists started with a '-'*/
+	/*process list-elements started with a '-'*/
 	if (line.at(0) ==  '-') {
 		line.erase(0,1);
 		if(!in_list) outfile << "<ul>" << '\n';
